@@ -4,6 +4,7 @@ import java.util.Date;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 
@@ -14,6 +15,7 @@ public class EmployeeForm {
 
     /** パスワード */
     @NotBlank
+    @Pattern(regexp = "^\\d+$")
     @Size(min = 1, max = 16)
     private String empPass;
 
