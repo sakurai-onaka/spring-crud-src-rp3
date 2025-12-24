@@ -28,6 +28,7 @@
 		FROM Employee e
 		INNER JOIN Department d ON e.dept_id = d.dept_id
 		WHERE emp_name LIKE CONCAT('%', #{empName},'%')
+		ORDER BY Emp_Id ASC
 	</select>
 
 	<!-- TODO 部署ID検索 -->
