@@ -32,7 +32,7 @@
 				<th class="authority">権限</th>
 			</th:block>
 			<th class="deptName">部署名</th>
-			<th:block th:if="${true}">
+			<th:block th:if="${session.user != null and session.user.authority == 2}">
 				<th class="button" colspan="2">操作</th>
 			</th:block>
 		</tr>
@@ -48,7 +48,7 @@
 					<span th:case="2">管理者</span></td>
 			</th:block>
 			<td th:text="${employee.deptName}"></td>
-			<th:block th:if="${true}">
+			<th:block th:if="${session.user != null and session.user.authority == 2}">
 				<td>
 					<form method="get" th:action="@{/update/input}">
 						<input type="hidden" name="empId" th:value="${employee.empId}" />

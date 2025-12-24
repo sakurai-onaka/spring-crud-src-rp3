@@ -27,9 +27,8 @@ public class LoginCheckFilter extends HttpFilter {
 		Employee emp = (Employee) session.getAttribute("user");
 		//TODO ユーザーがNULLの場合、ログイン画面にリダイレクトする
 		if (emp == null) {
-			//他機能への影響を防ぐため一時コメント化
-			/*			String URI = "/spring_crud/";
-						response.sendRedirect(URI);*/
+			String URI = "/spring_crud/";
+			response.sendRedirect(URI);
 		}
 		// 次の処理へ移行
 		chain.doFilter(request, response);
