@@ -29,6 +29,7 @@ public class LoginCheckFilter extends HttpFilter {
 		if (emp == null) {
 			String URI = "/spring_crud/";
 			response.sendRedirect(URI);
+			return;
 		}
 		// 次の処理へ移行
 		chain.doFilter(request, response);
