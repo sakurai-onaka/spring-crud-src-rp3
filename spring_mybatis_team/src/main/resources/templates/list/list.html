@@ -8,7 +8,7 @@
 <body class="admin user_list">
 	<h3>社員一覧画面</h3>
 	<!--TODO セッション中ユーザの権限が管理者の場合のみ表示するようにth:if属性を変更する(以下の文も同様) -->
-	<th:block th:if="${true}">
+	<th:block th:if="${session.user != null and session.user.authority == 2}">
 		<div class="regist_link">
 			<a th:href="@{/regist/input}">新規社員登録</a>
 		</div>
@@ -25,7 +25,7 @@
 		<tr>
 			<th class="empId">社員ID</th>
 			<th class="empName">社員名</th>
-			<th:block th:if="${true}">
+			<th:block th:if="${session.user != null and session.user.authority == 2}">
 				<th class="gender">性別</th>
 				<th class="address">住所</th>
 				<th class="birthday">生年月日</th>
@@ -39,7 +39,7 @@
 		<tr th:each="employee: ${employees}">
 			<td th:text="${employee.empId}"></td>
 			<td th:text="${employee.empName}"></td>
-			<th:block th:if="${true}">
+			<th:block th:if="${session.user != null and session.user.authority == 2}">
 				<td th:switch="${employee.gender}"><span th:case="1">男性</span>
 					<span th:case="2">女性</span></td>
 				<td th:text="${employee.address}"></td>
